@@ -11,6 +11,7 @@ dependencies:
   flutter_screenutil: ^5.5.3+2
   http: ^0.13.5
   fluttertoast: ^8.0.9
+  get_storage: ^2.0.3
   flutter: 
     sdk: flutter
 

@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../core/utils/api_link.dart';
-import '../../../data/models/signup_model.dart';
+import '../../../data/models/signin_model.dart';
 
-class SignupProvider extends GetConnect {
-  Future<dynamic> signUp(String address, String password) async {
-    var url = Uri.parse('${ApiLink.API_LINK}accounts');
+class SignInProvider extends GetConnect {
+  Future<SigninModel?> signIn(String address, String password) async {
+    var url = Uri.parse('${ApiLink.API_LINK}token');
     Map<String, dynamic> body = {"address": address, "password": password};
 
     final response = await http.post(url,
@@ -16,11 +16,8 @@ class SignupProvider extends GetConnect {
 
     print(response.statusCode);
     var jsonData = json.decode(response.body);
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return SignupModel.fromJson(jsonData);
-    } else if (response.statusCode == 400 || response.statusCode == 422) {
-      print(response.body);
-      return null;
+    if (response.statusCode == 200) {
+      return SigninModel.fromJson(jsonData);
     } else {
       return null;
     }

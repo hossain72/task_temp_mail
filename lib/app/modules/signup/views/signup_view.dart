@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:temp_mail_task/app/core/theme/color_manager.dart';
 
 import '../controllers/signup_controller.dart';
+import '../../../core/theme/color_manager.dart';
 
 class SignupView extends GetView<SignupController> {
   final _formKey = GlobalKey<FormState>();
@@ -28,11 +28,11 @@ class SignupView extends GetView<SignupController> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(
+                            Text(
                               'Sign Up',
                               style: TextStyle(
                                   color: Colors.blue,
-                                  fontSize: 22,
+                                  fontSize: 22.sp,
                                   fontWeight: FontWeight.bold),
                             ),
                             SizedBox(

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 
-import '../providers/domain_list_provider.dart';
+import 'package:get/get.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:temp_mail_task/app/routes/app_pages.dart';
+
 import '../providers/signup_provider.dart';
+import '../providers/domain_list_provider.dart';
 
 class SignupController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+
+  final isLoading = false.obs;
   final hidePassword = true.obs;
   final hideConfirmPassword = true.obs;
-  final isLoading = false.obs;
   List<String> domainLists = [];
   final selectedDomain = "".obs;
 
@@ -70,7 +73,7 @@ class SignupController extends GetxController {
             textColor: Colors.white,
             toastLength: Toast.LENGTH_LONG,
           );
-          Get.offAndToNamed('/signin');
+          Get.offAndToNamed(Routes.SIGNIN);
         } else if (value.context == "/contexts/ConstraintViolationList") {
           Fluttertoast.showToast(
             msg: value.hydraDescription.toString(),
