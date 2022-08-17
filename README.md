@@ -10,13 +10,13 @@ My project APK link:
 
 - [APK Link](https://drive.google.com/file/d/10CfbhPM7DNgIRlwSrIZCFMJHEo5RuiXV/view?usp=sharing)
 
-In this project using some libraries are:
+In this project using flutter version 3.0.4. This project using some packages. Those are:
 
-- Getx using state managemant.
-- Flutter Screenutil using responsive ui design.
-- Flutter Toast using show toast message.
-- Get Storage using local storage.
-- Mailer using send message.
+- getx -> using state managemant.
+- flutter_screenutil -> using responsive ui design.
+- fluttertoast -> using show toast message.
+- get_storage -> using local storage.
+- mailer -> using send message.
 
 App Screenshots
 
