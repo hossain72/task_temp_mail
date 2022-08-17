@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:temp_mail_task/app/core/theme/color_manager.dart';
 
 import '../controllers/inbox_controller.dart';
+import '../../../core/theme/color_manager.dart';
 
 class InboxView extends GetView<InboxController> {
   @override
