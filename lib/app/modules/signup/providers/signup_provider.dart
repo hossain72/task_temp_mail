@@ -1,26 +1,24 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 
-import '../../../core/utils/api_link.dart';
+import '../../../data/signup_error_model.dart';
+import '../../../core/constants/api_link.dart';
 import '../../../data/models/signup_model.dart';
 
 class SignupProvider extends GetConnect {
   Future<dynamic> signUp(String address, String password) async {
-    var url = Uri.parse('${ApiLink.API_LINK}accounts');
     Map<String, dynamic> body = {"address": address, "password": password};
+    Map<String, String> header = {"Content-Type": "application/json"};
 
-    final response = await http.post(url,
-        body: json.encode(body), headers: {"Content-Type": "application/json"});
+    final response = await post('${ApiLink.API_LINK}accounts', jsonEncode(body),
+        headers: header);
 
-    print(response.statusCode);
-    var jsonData = json.decode(response.body);
+    var jsonData = jsonDecode(response.body);
     if (response.statusCode == 200 || response.statusCode == 201) {
       return SignupModel.fromJson(jsonData);
     } else if (response.statusCode == 400 || response.statusCode == 422) {
-      print(response.body);
-      return null;
+      return SignupErrorModel.fromJson(jsonData);
     } else {
       return null;
     }

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../controllers/splash_controller.dart';
-import '../../../core/theme/assets_image_manager.dart';
+import '../../../core/constants/assets_image_manager.dart';
 
 class SplashView extends GetView<SplashController> {
   final controller = Get.find<SplashController>();

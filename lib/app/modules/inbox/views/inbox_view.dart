@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'widgets/message_info_widget.dart';
+
 import '../controllers/inbox_controller.dart';
-import '../../../core/theme/color_manager.dart';
 
 class InboxView extends GetView<InboxController> {
   @override
@@ -25,16 +26,14 @@ class InboxView extends GetView<InboxController> {
           actions: [
             IconButton(
               onPressed: () => controller.getRefreshMessage(),
-              icon: Icon(
+              icon: const Icon(
                 Icons.refresh,
                 color: Colors.blue,
               ),
             ),
             IconButton(
-              onPressed: () {
-                controller.logOut();
-              },
-              icon: Icon(
+              onPressed: () => controller.logOut(),
+              icon: const Icon(
                 Icons.logout,
                 color: Colors.red,
               ),
@@ -64,32 +63,8 @@ class InboxView extends GetView<InboxController> {
                         },
                         itemCount: controller.messagesList.length,
                         itemBuilder: (_, index) {
-                          return Card(
-                            elevation: 10,
-                            child: ListTile(
-                              title: Row(
-                                children: [
-                                  Text(
-                                    controller.messagesList[index].from.name,
-                                    style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  SizedBox(
-                                    width: 6.w,
-                                  ),
-                                  Text(
-                                    "<${controller.messagesList[index].from.address}>",
-                                    style: TextStyle(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: ColorManager.grey),
-                                  ),
-                                ],
-                              ),
-                              subtitle:
-                                  Text(controller.messagesList[index].subject),
-                            ),
+                          return MessageInfoWidget(
+                            messagesModel: controller.messagesList[index],
                           );
                         }),
                   )));

@@ -1,10 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/signup_controller.dart';
-import '../../../core/theme/color_manager.dart';
+import '../../../core/constants/color_manager.dart';
 
 class SignupView extends GetView<SignupController> {
   final _formKey = GlobalKey<FormState>();
@@ -206,6 +208,30 @@ class SignupView extends GetView<SignupController> {
                                     color: ColorManager.white),
                               ),
                             ),
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  text: "Already have an account? ",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () {
+                                            Get.offAllNamed(Routes.SIGNIN);
+                                          },
+                                        text: "Signin",
+                                        style: TextStyle(
+                                          color: Colors.blue,
+                                          fontSize: 16.sp,
+                                        ))
+                                  ]),
+                            )
                           ],
                         ),
                       ),

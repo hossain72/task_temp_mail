@@ -1,23 +1,20 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 
-import '../../../core/utils/api_link.dart';
+import '../../../core/constants/api_link.dart';
 import '../../../data/models/signin_model.dart';
 
 class SignInProvider extends GetConnect {
   Future<SigninModel?> signIn(String address, String password) async {
-    var url = Uri.parse('${ApiLink.API_LINK}token');
     Map<String, dynamic> body = {"address": address, "password": password};
+    Map<String, String> headers = {"Content-Type": "application/json"};
 
-    final response = await http.post(url,
-        body: json.encode(body), headers: {"Content-Type": "application/json"});
+    final response = await post('${ApiLink.API_LINK}token', json.encode(body),
+        headers: headers);
 
-    print(response.statusCode);
-    var jsonData = json.decode(response.body);
     if (response.statusCode == 200) {
-      return SigninModel.fromJson(jsonData);
+      return SigninModel.fromJson(response.body);
     } else {
       return null;
     }

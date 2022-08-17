@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/theme/color_manager.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/signin_controller.dart';
+import '../../../core/constants/color_manager.dart';
+
 
 class SigninView extends GetView<SigninController> {
   final _formKey = GlobalKey<FormState>();
@@ -132,7 +134,7 @@ class SigninView extends GetView<SigninController> {
                                     TextSpan(
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
-                                            Get.toNamed('/signup');
+                                            Get.toNamed(Routes.SIGNUP);
                                           },
                                         text: "Create account",
                                         style: TextStyle(

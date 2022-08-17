@@ -18,7 +18,6 @@ class InboxController extends GetxController {
   void onInit() async {
     super.onInit();
     token.value = localStorage.read('token');
-    print(token);
     update();
     await getMessages();
   }
