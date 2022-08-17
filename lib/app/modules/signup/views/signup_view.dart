@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,7 +87,19 @@ class SignupView extends GetView<SignupController> {
                                   ),
                                   TextFormField(
                                       controller: controller.emailController,
-                                      keyboardType: TextInputType.emailAddress,
+                                      keyboardType: TextInputType.text,
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.deny(RegExp(
+                                            r'[-~!@#$%^&*()_+`{}|<>?;:./=,\"]')),
+                                        FilteringTextInputFormatter.deny(
+                                            RegExp("'")),
+                                        FilteringTextInputFormatter.deny(
+                                            RegExp(r'\[')),
+                                        FilteringTextInputFormatter.deny(
+                                            RegExp(r'\]')),
+                                        FilteringTextInputFormatter.deny(
+                                            RegExp('[ ]')),
+                                      ],
                                       decoration: InputDecoration(
                                           isDense: true,
                                           contentPadding: EdgeInsets.all(20.r),
