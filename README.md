@@ -2,10 +2,6 @@
 
 This project is a starting point for a Flutter application.
 
-My project APK link:
-
-- [APK Link](https://drive.google.com/file/d/10CfbhPM7DNgIRlwSrIZCFMJHEo5RuiXV/view?usp=sharing)
-
 In this project using flutter version 3.0.4. This project using some packages. Those are:
 
 - getx -> using state managemant.
@@ -13,6 +9,10 @@ In this project using flutter version 3.0.4. This project using some packages. T
 - fluttertoast -> using show toast message.
 - get_storage -> using local storage.
 - mailer -> using send mail.
+
+My project APK file:
+
+- [APK Link](https://drive.google.com/file/d/10CfbhPM7DNgIRlwSrIZCFMJHEo5RuiXV/view?usp=sharing)
 
 App Screenshots
 
