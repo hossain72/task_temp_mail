@@ -1,9 +1,5 @@
 # temp_mail_task
 
-A new Flutter project.
-
-## Getting Started
-
 This project is a starting point for a Flutter application.
 
 My project APK link:
@@ -16,7 +12,7 @@ In this project using flutter version 3.0.4. This project using some packages. T
 - flutter_screenutil -> using responsive ui design.
 - fluttertoast -> using show toast message.
 - get_storage -> using local storage.
-- mailer -> using send message.
+- mailer -> using send mail.
 
 App Screenshots
 
