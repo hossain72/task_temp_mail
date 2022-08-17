@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/message_info_widget.dart';
-
 import '../controllers/inbox_controller.dart';
+import '../../../core/constants/color_manager.dart';
 
 class InboxView extends GetView<InboxController> {
   @override
@@ -54,19 +54,17 @@ class InboxView extends GetView<InboxController> {
                 : Container(
                     width: width,
                     height: height,
-                    padding: EdgeInsets.all(16.r),
+                    color: ColorManager.white,
                     child: ListView.separated(
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
-                        separatorBuilder: (_, int index) {
-                          return SizedBox(height: 10.h);
-                        },
+                        padding: EdgeInsets.all(16.r),
+                        separatorBuilder: (_, int index) =>
+                            SizedBox(height: 10.h),
                         itemCount: controller.messagesList.length,
-                        itemBuilder: (_, index) {
-                          return MessageInfoWidget(
-                            messagesModel: controller.messagesList[index],
-                          );
-                        }),
+                        itemBuilder: (_, index) => MessageInfoWidget(
+                              messagesModel: controller.messagesList[index],
+                            )),
                   )));
   }
 }

@@ -4,80 +4,84 @@
 
 import 'dart:convert';
 
-MessagesListModel messagesListModelFromJson(String str) => MessagesListModel.fromJson(json.decode(str));
+MessagesListModel messagesListModelFromJson(String str) =>
+    MessagesListModel.fromJson(json.decode(str));
 
-String messagesListModelToJson(MessagesListModel data) => json.encode(data.toJson());
+String messagesListModelToJson(MessagesListModel data) =>
+    json.encode(data.toJson());
 
 class MessagesListModel {
-    MessagesListModel({
-        required this.context,
-        required this.id,
-        required this.type,
-        required this.hydraMember,
-        required this.hydraTotalItems,
-    });
+  MessagesListModel({
+    required this.context,
+    required this.id,
+    required this.type,
+    required this.hydraMember,
+    required this.hydraTotalItems,
+  });
 
-    String context;
-    String id;
-    String type;
-    List<HydraMember> hydraMember;
-    int hydraTotalItems;
+  String context;
+  String id;
+  String type;
+  List<HydraMember> hydraMember;
+  int hydraTotalItems;
 
-    factory MessagesListModel.fromJson(Map<String, dynamic> json) => MessagesListModel(
+  factory MessagesListModel.fromJson(Map<String, dynamic> json) =>
+      MessagesListModel(
         context: json["@context"],
         id: json["@id"],
         type: json["@type"],
-        hydraMember: List<HydraMember>.from(json["hydra:member"].map((x) => HydraMember.fromJson(x))),
+        hydraMember: List<HydraMember>.from(
+            json["hydra:member"].map((x) => HydraMember.fromJson(x))),
         hydraTotalItems: json["hydra:totalItems"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "@context": context,
         "@id": id,
         "@type": type,
         "hydra:member": List<dynamic>.from(hydraMember.map((x) => x.toJson())),
         "hydra:totalItems": hydraTotalItems,
-    };
+      };
 }
 
 class HydraMember {
-    HydraMember({
-        required this.id,
-        required this.type,
-        required this.hydraMemberId,
-        required this.accountId,
-        required this.msgid,
-        required this.from,
-        required this.to,
-        required this.subject,
-        required this.intro,
-        required this.seen,
-        required this.isDeleted,
-        required this.hasAttachments,
-        required this.size,
-        required this.downloadUrl,
-        required this.createdAt,
-        required this.updatedAt,
-    });
+  HydraMember({
+    required this.id,
+    required this.type,
+    required this.hydraMemberId,
+    required this.accountId,
+    required this.msgid,
+    required this.from,
+    required this.to,
+    required this.subject,
+    required this.intro,
+    required this.seen,
+    required this.isDeleted,
+    required this.hasAttachments,
+    required this.size,
+    required this.downloadUrl,
+    required this.createdAt,
+    required this.updatedAt,
+  });
 
-    String id;
-    String type;
-    String hydraMemberId;
-    String accountId;
-    String msgid;
-    From from;
-    List<From> to;
-    String subject;
-    String intro;
-    bool seen;
-    bool isDeleted;
-    bool hasAttachments;
-    int size;
-    String downloadUrl;
-    DateTime createdAt;
-    DateTime updatedAt;
+  String id;
+  String type;
+  String hydraMemberId;
+  String accountId;
+  String msgid;
+  From from;
+  List<From> to;
+  String subject;
+  String intro;
+  bool seen;
+  bool isDeleted;
+  bool hasAttachments;
+  int size;
+  String downloadUrl;
+  DateTime createdAt;
+  DateTime updatedAt;
 
-    factory HydraMember.fromJson(Map<String, dynamic> json) => HydraMember(
+  factory HydraMember.fromJson(Map<String, dynamic> json) => HydraMember(
         id: json["@id"],
         type: json["@type"],
         hydraMemberId: json["id"],
@@ -94,9 +98,9 @@ class HydraMember {
         downloadUrl: json["downloadUrl"],
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "@id": id,
         "@type": type,
         "id": hydraMemberId,
@@ -113,25 +117,25 @@ class HydraMember {
         "downloadUrl": downloadUrl,
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
-    };
+      };
 }
 
 class From {
-    From({
-        required this.address,
-        required this.name,
-    });
+  From({
+    required this.address,
+    required this.name,
+  });
 
-    String address;
-    String name;
+  String address;
+  String name;
 
-    factory From.fromJson(Map<String, dynamic> json) => From(
+  factory From.fromJson(Map<String, dynamic> json) => From(
         address: json["address"],
         name: json["name"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "address": address,
         "name": name,
-    };
+      };
 }

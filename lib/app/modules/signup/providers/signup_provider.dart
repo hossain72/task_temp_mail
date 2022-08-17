@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 
-import '../../../data/signup_error_model.dart';
+import '../../../data/models/signup_error_model.dart';
 import '../../../core/constants/api_link.dart';
 import '../../../data/models/signup_model.dart';
 

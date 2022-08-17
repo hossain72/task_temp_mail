@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../data/models/messages_model.dart';
 import '../../../../core/constants/color_manager.dart';
 
-
 class MessageInfoWidget extends StatelessWidget {
   final MessagesModel messagesModel;
 
@@ -17,25 +16,46 @@ class MessageInfoWidget extends StatelessWidget {
     return Card(
       elevation: 10,
       child: ListTile(
-        title: Row(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              messagesModel.from.name,
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
+            Row(
+              children: [
+                Text(
+                  messagesModel.from.name,
+                  style:
+                      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  width: 6.w,
+                ),
+                Text(
+                  "<${messagesModel.from.address}>",
+                  style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      color: ColorManager.grey),
+                ),
+              ],
             ),
-            SizedBox(
-              width: 6.w,
-            ),
             Text(
-              "<${messagesModel.from.address}>",
+              messagesModel.subject,
               style: TextStyle(
-                  fontSize: 12.sp,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
-                  color: ColorManager.grey),
-            ),
+                  color: ColorManager.black),
+            )
           ],
         ),
-        subtitle: Text(messagesModel.subject),
+        subtitle: Text(
+          messagesModel.intro,
+          softWrap: true,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: 13.sp,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ),
     );
   }
