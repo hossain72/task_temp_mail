@@ -6,8 +6,8 @@ import '../../../routes/app_pages.dart';
 enum AuthStatus { NOT_LOGGED_IN, LOGGED_IN }
 
 class SplashController extends GetxController {
-  AuthStatus authStatus = AuthStatus.NOT_LOGGED_IN;
-  final localStorage = GetStorage();
+  late AuthStatus authStatus = AuthStatus.NOT_LOGGED_IN;
+  late final localStorage = GetStorage();
 
   @override
   void onInit() {

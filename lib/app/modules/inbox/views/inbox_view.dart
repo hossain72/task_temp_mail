@@ -17,10 +17,10 @@ class InboxView extends GetView<InboxController> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0.0,
-          title: const Text(
+          title: Text(
             "Inbox",
             style: TextStyle(
-                color: Colors.blue, fontSize: 22, fontWeight: FontWeight.bold),
+                color: Colors.blue, fontSize: 22.sp, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
           actions: [

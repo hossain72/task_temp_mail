@@ -9,10 +9,10 @@ import '../providers/messages_provider.dart';
 import '../../../data/models/messages_model.dart';
 
 class InboxController extends GetxController {
-  final localStorage = GetStorage();
-  final messagesList = <MessagesModel>[].obs;
-  final token = ''.obs;
-  final isLoading = false.obs;
+  late final localStorage = GetStorage();
+  late final messagesList = <MessagesModel>[].obs;
+  late final token = ''.obs;
+  late final isLoading = false.obs;
 
   @override
   void onInit() async {

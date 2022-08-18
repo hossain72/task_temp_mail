@@ -12,6 +12,7 @@ dependencies:
   fluttertoast: ^8.0.9
   get_storage: ^2.0.3
   mailer: ^5.2.0
+  intl: ^0.17.0
   flutter: 
     sdk: flutter
 

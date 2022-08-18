@@ -10,15 +10,15 @@ import '../providers/signup_provider.dart';
 import '../providers/domain_list_provider.dart';
 
 class SignupController extends GetxController {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
+  late final emailController = TextEditingController();
+  late final passwordController = TextEditingController();
+  late final confirmPasswordController = TextEditingController();
 
-  final isLoading = false.obs;
-  final hidePassword = true.obs;
-  final hideConfirmPassword = true.obs;
-  List<String> domainLists = [];
-  final selectedDomain = "".obs;
+  late final isLoading = false.obs;
+  late final hidePassword = true.obs;
+  late final hideConfirmPassword = true.obs;
+  late List<String> domainLists = [];
+  late final selectedDomain = "".obs;
 
   @override
   void onInit() {

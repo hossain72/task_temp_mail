@@ -8,12 +8,12 @@ import '../../../routes/app_pages.dart';
 import '../providers/signin_provider.dart';
 
 class SigninController extends GetxController {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  late final emailController = TextEditingController();
+  late final passwordController = TextEditingController();
 
-  final localStorage = GetStorage();
-  final isLoading = false.obs;
-  final hidePassword = true.obs;
+  late final localStorage = GetStorage();
+  late final isLoading = false.obs;
+  late final hidePassword = true.obs;
 
   @override
   void onInit() {
