@@ -9,10 +9,11 @@ In this project using flutter version 3.0.4. This project using some packages. T
 - fluttertoast -> using show toast message.
 - get_storage -> using local storage.
 - mailer -> using send mail.
+- intl -> using date format.
 
 My project APK file:
 
-- [APK Link](https://drive.google.com/file/d/10CfbhPM7DNgIRlwSrIZCFMJHEo5RuiXV/view?usp=sharing)
+- [APK Link](https://drive.google.com/file/d/1EQ0jbsw9zjO0k17yRYduZg1mt9XiAxe6/view?usp=sharing)
 
 App Screenshots
 
